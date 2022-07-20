@@ -1,0 +1,17 @@
+.skeleton {
+  height: 250px;
+  border-radius: 15px;
+  animation: skeletonAnimate 1s infinite;
+}
+
+@keyframes skeletonAnimate {
+  0% {
+    background: rgb(155, 155, 155);
+  }
+  50% {
+    background: rgb(184, 184, 184);
+  }
+  100% {
+    background: rgb(155, 155, 155);
+  }
+}
