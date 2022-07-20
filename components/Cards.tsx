@@ -16,7 +16,7 @@ export const Cards = () => {
   useEffect(() => {
     (async () => {
       const dataFromApi = await axios.get(
-        "http://localhost:8080/api/v1/courses"
+        "https://selp-jgfj.herokuapp.com/api/v1/courses"
       );
       setData(dataFromApi.data);
       setLoading(false);
