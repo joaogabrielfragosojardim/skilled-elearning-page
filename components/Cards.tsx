@@ -3,6 +3,8 @@ import { useEffect, useState } from "react";
 import { constants } from "../constants/constants";
 import { Card } from "./Card";
 
+import styles from "../styles/Cards.module.css";
+
 interface IRequest {
   title: string;
   paragraph: string;
@@ -23,6 +25,27 @@ export const Cards = () => {
     })();
   }, []);
 
+  if (loading) {
+    return (
+      <div
+        style={{
+          display: "grid",
+          gridTemplateColumns: "repeat(auto-fit, minmax(200px, 490px))",
+          gap: "80px 30px",
+          justifyContent: "center",
+          marginBottom: "100px",
+        }}
+      >
+        <div className={styles.skeleton}></div>
+        <div className={styles.skeleton}></div>
+        <div className={styles.skeleton}></div>
+        <div className={styles.skeleton}></div>
+        <div className={styles.skeleton}></div>
+        <div className={styles.skeleton}></div>
+      </div>
+    );
+  }
+
   return (
     <div
       style={{
@@ -33,7 +56,7 @@ export const Cards = () => {
         marginBottom: "100px",
       }}
     >
-      <Card background={constants.pinkGradient} loading={loading}>
+      <Card background={constants.pinkGradient}>
         <h3>Check out our most popular courses!</h3>
       </Card>
       {data.map((item: IRequest) => (

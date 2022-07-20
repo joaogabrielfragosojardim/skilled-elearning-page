@@ -1,24 +1,14 @@
 import { Icon } from "../assets/Icon";
-import styles from "../styles/Cards.module.css";
 
 interface IProps {
   children: React.ReactNode;
   background: string;
   icon?: string;
   shadow?: boolean;
-  loading: boolean;
+  loading?: boolean;
 }
 
-export const Card = ({
-  children,
-  background,
-  icon,
-  shadow,
-  loading,
-}: IProps) => {
-  if (loading) {
-    return <div className={styles.skeleton}></div>;
-  }
+export const Card = ({ children, background, icon, shadow }: IProps) => {
   return (
     <div
       style={{
@@ -39,7 +29,7 @@ export const Card = ({
           <Icon name={icon} />
         </div>
       )}
-      {!loading && children}
+      {children}
     </div>
   );
 };
